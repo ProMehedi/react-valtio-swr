@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // Pages
-import { Home, AddBook, EditBook } from './pages'
+import { Home, AddBook, EditBook } from '@pages'
 
 const App = () => {
   return (

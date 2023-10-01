@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
-import { Layout } from '../components'
-import { EditForm } from '../components/books'
-import { Alert } from '../components/ui'
-import { FormLoader } from '../components/ui/loaders'
+import { Layout } from '@components'
+import { EditForm } from '@components/books'
+import { Alert } from '@components/ui'
+import { FormLoader } from '@components/ui/loaders'
 
 const EditBook = () => {
   // Get id from params

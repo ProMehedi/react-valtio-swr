@@ -1,5 +1,5 @@
-import { Layout } from '../components'
-import { AddForm } from '../components/books'
+import { Layout } from '@components'
+import { AddForm } from '@components/books'
 
 const AddBook = () => {
   return (

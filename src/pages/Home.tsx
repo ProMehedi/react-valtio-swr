@@ -1,5 +1,5 @@
-import { Layout } from '../components'
-import { BookFilter, BookList } from '../components/books'
+import { Layout } from '@components'
+import { BookFilter, BookList } from '@components/books'
 
 const Home = () => {
   return (
