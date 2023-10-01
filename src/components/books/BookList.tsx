@@ -4,7 +4,26 @@ import { Alert } from '../ui'
 
 const BookList = () => {
   const query = ''
-  const searchedBooks: any = []
+  const searchedBooks: Book[] = [
+    {
+      id: 1,
+      name: 'Book Name',
+      author: 'Author Name',
+      featured: true,
+      price: 100,
+      rating: 4,
+      thumbnail: 'https://source.unsplash.com/random/400x400?book+girl',
+    },
+    {
+      id: 2,
+      name: 'Book Name',
+      author: 'Author Name',
+      featured: true,
+      price: 100,
+      rating: 4,
+      thumbnail: 'https://source.unsplash.com/random/400x400?book+boy',
+    },
+  ]
   const filter = ''
   const isLoading = false
   const isError = false
