@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Rating from '../Rating'
-import { fCurrency } from '../utils'
+import { fCurrency } from '@utils'
 
 const Book = ({ book }: { book: Book }) => {
   const [currentId, setCurrentId] = React.useState(0)

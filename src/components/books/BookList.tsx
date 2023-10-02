@@ -1,8 +1,20 @@
-import Book from './Book'
+import useSWR from 'swr'
+
 import { BookLoader } from '../ui/loaders'
 import { Alert } from '../ui'
+import { store } from '@store'
+
+import Book from './Book'
+
+import { fetcher } from '@utils'
 
 const BookList = () => {
+  // Get books from API
+  const { data, isLoading, error } = useSWR('books', () => fetcher('books'))
+
+  // Save to Valtio store
+  store.books = data
+
   const query = ''
   const searchedBooks: Book[] = [
     {
@@ -25,8 +37,9 @@ const BookList = () => {
     },
   ]
   const filter = ''
-  const isLoading = false
-  const isError = false
+  const isError = error
+
+  console.log(data)
 
   // Show books
   return (

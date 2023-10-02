@@ -1,17 +1,8 @@
 import { proxy } from 'valtio'
 
-type Filter = 'all' | 'active' | 'completed'
-type Todo = {
-  id: number
-  title: string
-  completed: boolean
-}
+type Filter = 'all' | 'featured'
 
-export const store = proxy<{ filter: Filter; todos: Todo[] }>({
+export const store = proxy<{ filter: Filter; books: Book[] }>({
   filter: 'all',
-  todos: [],
+  books: [],
 })
-
-export const saveTodos = (todos: Todo[]) => {
-  store.todos = todos
-}

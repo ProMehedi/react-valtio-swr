@@ -1,12 +1,19 @@
 import React from 'react'
+import { useSnapshot } from 'valtio'
+
 import { useNavigate } from 'react-router-dom'
 import { Alert } from '../ui'
 import { IconLoader } from '../ui/loaders'
+import { store } from '@store'
 
 const EditForm = ({ book }: { book: Book }) => {
   const isLoading = false
   const isError = false
   const isSuccess = false
+
+  const { books } = useSnapshot(store)
+
+  console.log(books[1])
 
   const [newBook, setNewBook] = React.useState({
     name: '',
