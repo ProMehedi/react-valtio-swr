@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
+  // Get PathName from react-router
+  const pathname = useLocation().pathname
+
   const query = ''
 
   const [search, setSearch] = React.useState(query)
@@ -21,12 +24,20 @@ const Header = () => {
         <ul className='hidden md:flex items-center space-x-6'>
           <Link
             to='/'
-            className='font-semibold cursor-pointer'
+            className={`cursor-pointer ${
+              pathname === '/' && 'font-semibold text-blue-700'
+            }`}
             id='lws-bookStore'
           >
             <li>Book Store</li>
           </Link>
-          <Link to='/new-book' className='cursor-pointer' id='lws-addBook'>
+          <Link
+            to='/new-book'
+            className={`cursor-pointer ${
+              pathname === '/new-book' && 'font-semibold text-blue-700'
+            }`}
+            id='lws-addBook'
+          >
             <li>Add Book</li>
           </Link>
         </ul>

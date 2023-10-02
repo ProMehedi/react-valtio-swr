@@ -11,9 +11,9 @@ const EditForm = ({ book }: { book: Book }) => {
   const isError = false
   const isSuccess = false
 
-  const { books } = useSnapshot(store)
+  // const { books } = useSnapshot(store)
 
-  console.log(books[1])
+  // console.log(books[1])
 
   const [newBook, setNewBook] = React.useState({
     name: '',

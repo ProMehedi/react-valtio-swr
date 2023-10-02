@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import { useSnapshot } from 'valtio'
 
 import { BookLoader } from '../ui/loaders'
 import { Alert } from '../ui'
@@ -10,34 +11,22 @@ import { fetcher } from '@utils'
 
 const BookList = () => {
   // Get books from API
-  const { data, isLoading, error } = useSWR('books', () => fetcher('books'))
+  const { data, isLoading, error } = useSWR<Book[]>('/books', fetcher, {
+    // revalidateOnFocus: false,
+    // revalidateIfStale: false,
+  })
 
   // Save to Valtio store
-  store.books = data
+  if (data) store.books = data
+
+  // Get books from Valtio store
+  const { books } = useSnapshot(store)
 
   const query = ''
-  const searchedBooks: Book[] = [
-    {
-      id: 1,
-      name: 'Book Name',
-      author: 'Author Name',
-      featured: true,
-      price: 100,
-      rating: 4,
-      thumbnail: 'https://source.unsplash.com/random/400x400?book+girl',
-    },
-    {
-      id: 2,
-      name: 'Book Name',
-      author: 'Author Name',
-      featured: true,
-      price: 100,
-      rating: 4,
-      thumbnail: 'https://source.unsplash.com/random/400x400?book+boy',
-    },
-  ]
+  const searchedBooks = books
+
   const filter = ''
-  const isError = error
+  const isError = error && error?.message
 
   console.log(data)
 
